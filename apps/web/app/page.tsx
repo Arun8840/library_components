@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   Checkbox,
+  Dropdown,
   Input,
   Navbar,
   Progress,
@@ -49,6 +50,13 @@ const defaultNavActions = [
     variant: "secondary",
   },
 ];
+
+const defaultDropdownItems = [
+  { key: "item1", value: "Item 1" },
+  { key: "item2", value: "Item 2" },
+  { key: "item3", value: "Item 3" },
+];
+
 export default function Page() {
   return (
     <main className="p-5 bg-slate-100 min-h-screen  gap-2">
@@ -64,7 +72,7 @@ export default function Page() {
           />
         </div>
         {/* //* tab  */}
-        <Tab className="col-span-full" value="1">
+        <Tab className="col-span-full" value="8">
           <Tab.List>
             <Tab.Trigger trigger="1">Buttons</Tab.Trigger>
             <Tab.Trigger trigger="5">Inputs</Tab.Trigger>
@@ -73,6 +81,7 @@ export default function Page() {
             <Tab.Trigger trigger="4">Avatar</Tab.Trigger>
             <Tab.Trigger trigger="6">Card</Tab.Trigger>
             <Tab.Trigger trigger="7">Accordion</Tab.Trigger>
+            <Tab.Trigger trigger="8">Dropdown</Tab.Trigger>
           </Tab.List>
           <Tab.Content className="w-1/2" value="1">
             <div className="grid grid-cols-2 gap-2">
@@ -219,6 +228,22 @@ export default function Page() {
                 </Accordion.Content>
               </Accordion.Item>
             </Accordion>
+          </Tab.Content>
+          <Tab.Content className="w-1/2 bg-gray-100 flex gap-2" value="8">
+            <Dropdown
+              data={{
+                items: defaultDropdownItems,
+                placeholder: "Select Components",
+              }}
+            />
+
+            <Dropdown
+              data={{
+                items: defaultDropdownItems,
+                placeholder: "Disabled Select",
+                disabled: true,
+              }}
+            />
           </Tab.Content>
         </Tab>
       </div>
