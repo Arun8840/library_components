@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Accordion,
@@ -7,16 +7,62 @@ import {
   Card,
   Checkbox,
   Input,
+  Navbar,
   Progress,
   Radio,
   Tab,
   Textarea,
-} from "@zettastackpvt/ui/index"
+} from "@zettastackpvt/ui/index";
 
+const defaultNavItems = [
+  {
+    label: "Home",
+    href: "/",
+    icon: "🏠",
+  },
+  {
+    label: "About",
+    href: "#",
+    icon: "ℹ️",
+  },
+  {
+    label: "Services",
+    href: "#",
+    icon: "🛠️",
+  },
+  {
+    label: "Contact",
+    href: "/#",
+    icon: "✉️",
+  },
+];
+
+const defaultNavActions = [
+  {
+    label: "Login",
+    href: "#",
+    variant: "primary",
+  },
+  {
+    label: "Sign-up",
+    href: "#",
+    variant: "secondary",
+  },
+];
 export default function Page() {
   return (
-    <main className="p-10 bg-slate-100 min-h-screen  gap-2">
+    <main className="p-5 bg-slate-100 min-h-screen  gap-2">
       <div className="size-full grid lg:grid-cols-12 auto-rows-max gap-2">
+        <div className="col-span-full">
+          <Navbar
+            nav={{
+              items: defaultNavItems,
+              logo: "https://github.com/shadcn.png",
+              actions: defaultNavActions,
+              itemPosition: "center",
+            }}
+          />
+        </div>
         {/* //* tab  */}
         <Tab className="col-span-full" value="1">
           <Tab.List>
@@ -177,5 +223,5 @@ export default function Page() {
         </Tab>
       </div>
     </main>
-  )
+  );
 }
