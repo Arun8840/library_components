@@ -13,3 +13,5 @@ export { Progress } from "./components/Progress";
 export { Tab } from "./components/Tab";
 export { Navbar } from "./components/Navbar";
 export { Dropdown } from "./components/Dropdown";
+export { Badge } from "./components/Badge";
+export { Dialog } from "./components/Dialog";
