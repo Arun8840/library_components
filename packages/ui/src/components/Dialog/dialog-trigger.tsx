@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import { ButtonProps } from "./button-types";
 import { cn } from "../../lib/utils";
+import { DialogTriggerProps } from "./dialog-types";
+import { useDialogContext } from "./dialog-root";
 
 const variantKey = {
   primary:
@@ -15,15 +16,38 @@ const variantKey = {
   none: "bg-transparent text-inherit border-none p-0 m-0 shadow-none hover:bg-transparent cursor-pointer",
 };
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, variant = "primary", className, ...props }, ref) => {
+export const DialogTrigger = React.forwardRef<
+  HTMLButtonElement,
+  DialogTriggerProps
+>(
+  (
+    { children, variant = "primary", className, asChild = false, ...props },
+    ref
+  ) => {
     const variantClass = variantKey[variant] || variantKey.primary;
+
+    const { openDialog } = useDialogContext();
+
+    if (asChild && React.isValidElement(children)) {
+      const childProps: Record<string, any> = {
+        className: cn(variantClass, children.props.className, className),
+        onClick: (e: React.MouseEvent) => {
+          if (typeof children.props.onClick === "function") {
+            children.props.onClick(e);
+          }
+          openDialog();
+        },
+        ...props,
+      };
+      return React.cloneElement(children, childProps);
+    }
 
     return (
       <button
         ref={ref}
         className={cn(variantClass, className)}
         type="button"
+        onClick={openDialog}
         {...props}
       >
         {children ?? "Button"}
@@ -32,4 +56,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-Button.displayName = "Button";
+DialogTrigger.displayName = "Button";

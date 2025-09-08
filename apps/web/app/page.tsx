@@ -1,24 +1,80 @@
-"use client"
+"use client";
 
 import {
   Accordion,
   Avatar,
+  Badge,
   Button,
   Card,
   Checkbox,
+  Dropdown,
   Input,
+  Navbar,
   Progress,
   Radio,
   Tab,
   Textarea,
-} from "@zettastackpvt/ui/index"
+  Dialog,
+} from "@zettastackpvt/ui/index";
+
+const defaultNavItems = [
+  {
+    label: "Home",
+    href: "/",
+    icon: "🏠",
+  },
+  {
+    label: "About",
+    href: "#",
+    icon: "ℹ️",
+  },
+  {
+    label: "Services",
+    href: "#",
+    icon: "🛠️",
+  },
+  {
+    label: "Contact",
+    href: "/#",
+    icon: "✉️",
+  },
+];
+
+const defaultNavActions = [
+  {
+    label: "Login",
+    href: "#",
+    variant: "primary",
+  },
+  {
+    label: "Sign-up",
+    href: "#",
+    variant: "secondary",
+  },
+];
+
+const defaultDropdownItems = [
+  { key: "item1", value: "Item 1" },
+  { key: "item2", value: "Item 2" },
+  { key: "item3", value: "Item 3" },
+];
 
 export default function Page() {
   return (
-    <main className="p-10 bg-slate-100 min-h-screen  gap-2">
+    <main className="p-5 bg-slate-100 min-h-screen  gap-2">
       <div className="size-full grid lg:grid-cols-12 auto-rows-max gap-2">
+        <div className="col-span-full">
+          <Navbar
+            nav={{
+              items: defaultNavItems,
+              logo: "https://github.com/shadcn.png",
+              actions: defaultNavActions,
+              itemPosition: "center",
+            }}
+          />
+        </div>
         {/* //* tab  */}
-        <Tab className="col-span-full" value="1">
+        <Tab className="col-span-full" value="8">
           <Tab.List>
             <Tab.Trigger trigger="1">Buttons</Tab.Trigger>
             <Tab.Trigger trigger="5">Inputs</Tab.Trigger>
@@ -27,8 +83,11 @@ export default function Page() {
             <Tab.Trigger trigger="4">Avatar</Tab.Trigger>
             <Tab.Trigger trigger="6">Card</Tab.Trigger>
             <Tab.Trigger trigger="7">Accordion</Tab.Trigger>
+            <Tab.Trigger trigger="8">Dropdown</Tab.Trigger>
+            <Tab.Trigger trigger="9">Badge</Tab.Trigger>
+            <Tab.Trigger trigger="10">Dialog</Tab.Trigger>
           </Tab.List>
-          <Tab.Content className="w-1/2" value="1">
+          <Tab.Content className="w-1/6" value="1">
             <div className="grid grid-cols-2 gap-2">
               <Button variant="primary">Primary</Button>
               <Button variant="secondary">Secondary</Button>
@@ -36,7 +95,7 @@ export default function Page() {
               <Button variant="outline">Outline</Button>
             </div>
           </Tab.Content>
-          <Tab.Content className="w-1/2" value="2">
+          <Tab.Content className="w-1/3" value="2">
             <div className="col-span-3">
               <Checkbox
                 id="terms"
@@ -67,7 +126,7 @@ export default function Page() {
               />
             </div>
           </Tab.Content>
-          <Tab.Content className="w-1/2" value="3">
+          <Tab.Content className="w-1/3" value="3">
             <Radio
               id="terms"
               name="terms"
@@ -98,7 +157,7 @@ export default function Page() {
               />
             </div>
           </Tab.Content>
-          <Tab.Content className="w-1/2" value="5">
+          <Tab.Content className="w-1/3" value="5">
             <div className="flex flex-col gap-2">
               <Input label="Username" className="w-full" />
               <Input label="Phone number" type="number" className="w-full" />
@@ -174,8 +233,46 @@ export default function Page() {
               </Accordion.Item>
             </Accordion>
           </Tab.Content>
+          <Tab.Content className="w-1/2 bg-gray-100 flex gap-2" value="8">
+            <Dropdown
+              data={{
+                items: defaultDropdownItems,
+                placeholder: "Select Components",
+              }}
+            />
+
+            <Dropdown
+              data={{
+                items: defaultDropdownItems,
+                placeholder: "Disabled Select",
+                disabled: true,
+              }}
+            />
+          </Tab.Content>
+          <Tab.Content value="9" className="flex gap-2 w-1/3">
+            <Badge variant="default">Default</Badge>
+            <Badge variant="danger">Danger</Badge>
+            <Badge variant="warning">Warning</Badge>
+            <Badge variant="success">Success</Badge>
+          </Tab.Content>
+          <Tab.Content value="10" className="w-1/3">
+            <Dialog>
+              <Dialog.Trigger variant="secondary">Open Dialog </Dialog.Trigger>
+
+              <Dialog.Content>
+                <Dialog.Title>Are you absolutely sure?</Dialog.Title>
+                <Dialog.Description className="text-stone-500">
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
+                </Dialog.Description>
+                <Dialog.Footer>
+                  <Dialog.Close>Close</Dialog.Close>
+                </Dialog.Footer>
+              </Dialog.Content>
+            </Dialog>
+          </Tab.Content>
         </Tab>
       </div>
     </main>
-  )
+  );
 }
