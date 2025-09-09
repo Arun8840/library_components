@@ -18,8 +18,9 @@ export interface DropdownTriggerProps
   label?: string;
 }
 
-export interface DropdownContentProps
-  extends HTMLAttributes<HTMLUListElement> {}
+export interface DropdownContentProps extends HTMLAttributes<HTMLUListElement> {
+  position?: "top" | "bottom";
+}
 
 export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {}
 
