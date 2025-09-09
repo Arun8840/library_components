@@ -15,3 +15,7 @@ export { Navbar } from "./components/Navbar";
 export { Dropdown } from "./components/Dropdown";
 export { Badge } from "./components/Badge";
 export { Dialog } from "./components/Dialog";
+export { ToggleGroup } from "./components/ToggleGroup";
+export { Slider } from "./components/Slider";
+export { Carousel } from "./components/Carousel";
+export { Tooltip } from "./components/Tooltip";

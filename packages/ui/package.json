@@ -1,6 +1,6 @@
 {
   "name": "@zettastackpvt/ui",
-  "version": "2.3.2",
+  "version": "2.3.4",
   "private": false,
   "publishConfig": {
     "access": "public"

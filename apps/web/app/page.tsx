@@ -15,6 +15,10 @@ import {
   Tab,
   Textarea,
   Dialog,
+  ToggleGroup,
+  Slider,
+  Carousel,
+  Tooltip,
 } from "@zettastackpvt/ui/index";
 
 const defaultNavItems = [
@@ -86,6 +90,10 @@ export default function Page() {
             <Tab.Trigger trigger="8">Dropdown</Tab.Trigger>
             <Tab.Trigger trigger="9">Badge</Tab.Trigger>
             <Tab.Trigger trigger="10">Dialog</Tab.Trigger>
+            <Tab.Trigger trigger="11">Toggle Group</Tab.Trigger>
+            <Tab.Trigger trigger="12">Slider</Tab.Trigger>
+            <Tab.Trigger trigger="13">Carousel</Tab.Trigger>
+            <Tab.Trigger trigger="15">Tooltip</Tab.Trigger>
           </Tab.List>
           <Tab.Content className="w-1/6" value="1">
             <div className="grid grid-cols-2 gap-2">
@@ -270,6 +278,62 @@ export default function Page() {
                 </Dialog.Footer>
               </Dialog.Content>
             </Dialog>
+          </Tab.Content>
+          <Tab.Content value="11" className="flex gap-2">
+            <ToggleGroup>
+              <ToggleGroup.GroupItem value={"bold"}>B</ToggleGroup.GroupItem>
+              <ToggleGroup.GroupItem value={"italic"}>I</ToggleGroup.GroupItem>
+              <ToggleGroup.GroupItem value={"strikethrough"}>
+                U
+              </ToggleGroup.GroupItem>
+            </ToggleGroup>
+            <ToggleGroup variant="outline">
+              <ToggleGroup.GroupItem value={"outline_bold"}>
+                B
+              </ToggleGroup.GroupItem>
+              <ToggleGroup.GroupItem value={"outline_italic"}>
+                I
+              </ToggleGroup.GroupItem>
+              <ToggleGroup.GroupItem value={"outline_strikethrough"}>
+                U
+              </ToggleGroup.GroupItem>
+            </ToggleGroup>
+          </Tab.Content>
+          <Tab.Content value="12" className="w-1/2">
+            <Slider defaultValue={10} min={0} max={100} />
+            <Slider defaultValue={10} min={0} max={100} variant="danger" />
+            <Slider defaultValue={10} min={0} max={100} variant="success" />
+            <Slider defaultValue={10} min={0} max={100} variant="warning" />
+            <Slider
+              defaultValue={5}
+              min={0}
+              max={100}
+              variant="default"
+              disabled
+            />
+          </Tab.Content>
+          <Tab.Content value="13">
+            <Carousel total={3} className="mx-auto">
+              <Carousel.Content className="p-1">
+                <Carousel.Item className="bg-yellow-400 rounded-lg p-3 grid place-items-center">
+                  1
+                </Carousel.Item>
+                <Carousel.Item className="bg-indigo-400 rounded-lg p-3 grid place-items-center">
+                  2
+                </Carousel.Item>
+                <Carousel.Item className="bg-green-400 p-3  rounded-lg grid place-items-center">
+                  3
+                </Carousel.Item>
+              </Carousel.Content>
+            </Carousel>
+          </Tab.Content>
+          <Tab.Content value="15">
+            <Tooltip>
+              <Tooltip.Trigger>✨ Hover me!</Tooltip.Trigger>
+              <Tooltip.Content>
+                <p className="text-center">✨ Add to library </p>
+              </Tooltip.Content>
+            </Tooltip>
           </Tab.Content>
         </Tab>
       </div>
