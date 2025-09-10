@@ -19,3 +19,5 @@ export { ToggleGroup } from "./components/ToggleGroup";
 export { Slider } from "./components/Slider";
 export { Carousel } from "./components/Carousel";
 export { Tooltip } from "./components/Tooltip";
+export { Timeline } from "./components/Timeline";
+export { Uploader } from "./components/FileUploader";
