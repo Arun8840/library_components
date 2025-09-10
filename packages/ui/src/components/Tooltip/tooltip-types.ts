@@ -7,5 +7,5 @@ export interface TooltipTriggerProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface TooltipContentProps extends HTMLAttributes<HTMLDivElement> {
-  position?: "top" | "bottom" | "left" | "right";
+  position?: "top" | "bottom";
 }

@@ -19,6 +19,8 @@ import {
   Slider,
   Carousel,
   Tooltip,
+  Timeline,
+  Uploader,
 } from "@zettastackpvt/ui/index";
 
 const defaultNavItems = [
@@ -56,11 +58,52 @@ const defaultNavActions = [
     variant: "secondary",
   },
 ];
+const timelineData = [
+  {
+    title: "Project Kickoff",
+    description:
+      "The team met to discuss project goals, deliverables, and timelines. Roles were assigned and initial requirements were gathered.",
+  },
+  {
+    title: "First Prototype Released",
+    description:
+      "The initial prototype was completed and shared with stakeholders for feedback. Early testing identified key areas for improvement.",
+  },
+  {
+    title: "Beta Launch",
+    description:
+      "A beta version was launched to a limited audience. Feedback was collected and used to fix bugs and enhance features.",
+  },
+  {
+    title: "Public Release",
+    description:
+      "The project was released to the public. Ongoing support and updates are planned based on user feedback.",
+  },
+];
 
 const defaultDropdownItems = [
   { key: "item1", value: "Item 1" },
   { key: "item2", value: "Item 2" },
   { key: "item3", value: "Item 3" },
+];
+
+const tabData = [
+  { label: "Buttons" },
+  { label: "Inputs" },
+  { label: "Checkboxes" },
+  { label: "Radio" },
+  { label: "Avatar" },
+  { label: "Card" },
+  { label: "Accordion" },
+  { label: "Dropdown" },
+  { label: "Badge" },
+  { label: "Dialog" },
+  { label: "Toggle Group" },
+  { label: "Slider" },
+  { label: "Carousel" },
+  { label: "Tooltip" },
+  { label: "Timeline" },
+  { label: "File Uploader" },
 ];
 
 export default function Page() {
@@ -80,20 +123,11 @@ export default function Page() {
         {/* //* tab  */}
         <Tab className="col-span-full" value="8">
           <Tab.List>
-            <Tab.Trigger trigger="1">Buttons</Tab.Trigger>
-            <Tab.Trigger trigger="5">Inputs</Tab.Trigger>
-            <Tab.Trigger trigger="2">Checkboxes</Tab.Trigger>
-            <Tab.Trigger trigger="3">Radio</Tab.Trigger>
-            <Tab.Trigger trigger="4">Avatar</Tab.Trigger>
-            <Tab.Trigger trigger="6">Card</Tab.Trigger>
-            <Tab.Trigger trigger="7">Accordion</Tab.Trigger>
-            <Tab.Trigger trigger="8">Dropdown</Tab.Trigger>
-            <Tab.Trigger trigger="9">Badge</Tab.Trigger>
-            <Tab.Trigger trigger="10">Dialog</Tab.Trigger>
-            <Tab.Trigger trigger="11">Toggle Group</Tab.Trigger>
-            <Tab.Trigger trigger="12">Slider</Tab.Trigger>
-            <Tab.Trigger trigger="13">Carousel</Tab.Trigger>
-            <Tab.Trigger trigger="15">Tooltip</Tab.Trigger>
+            {tabData?.map(({ label }, tabIndex) => (
+              <Tab.Trigger key={tabIndex + 1} trigger={`${tabIndex + 1}`}>
+                {label}
+              </Tab.Trigger>
+            ))}
           </Tab.List>
           <Tab.Content className="w-1/6" value="1">
             <div className="grid grid-cols-2 gap-2">
@@ -327,13 +361,41 @@ export default function Page() {
               </Carousel.Content>
             </Carousel>
           </Tab.Content>
-          <Tab.Content value="15">
+          <Tab.Content value="14">
             <Tooltip>
               <Tooltip.Trigger>✨ Hover me!</Tooltip.Trigger>
               <Tooltip.Content>
                 <p className="text-center">✨ Add to library </p>
               </Tooltip.Content>
             </Tooltip>
+          </Tab.Content>
+          <Tab.Content value="15" className="p-10">
+            <Timeline>
+              {timelineData?.map((timeline, timelineIndex) => {
+                return (
+                  <Timeline.Item
+                    key={`timeline_${timelineIndex}`}
+                    order={timelineIndex + 1}
+                    className="w-1/2"
+                  >
+                    <Timeline.Title>{timeline?.title}</Timeline.Title>
+                    <Timeline.Description>
+                      {timeline?.description}
+                    </Timeline.Description>
+                  </Timeline.Item>
+                );
+              })}
+            </Timeline>
+          </Tab.Content>
+          <Tab.Content value="16" className="w-1/4">
+            <Uploader
+              onUploadFile={(e) => console.log("e", e)}
+              accept="image/*"
+            >
+              <Uploader.Action>Choose file</Uploader.Action>
+              <Uploader.Progress />
+              <Uploader.Upload>Upload</Uploader.Upload>
+            </Uploader>
           </Tab.Content>
         </Tab>
       </div>
