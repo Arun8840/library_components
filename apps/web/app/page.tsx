@@ -21,6 +21,7 @@ import {
   Tooltip,
   Timeline,
   Uploader,
+  Switch,
 } from "@zettastackpvt/ui/index";
 
 const defaultNavItems = [
@@ -104,6 +105,7 @@ const tabData = [
   { label: "Tooltip" },
   { label: "Timeline" },
   { label: "File Uploader" },
+  { label: "Switch" },
 ];
 
 export default function Page() {
@@ -121,15 +123,15 @@ export default function Page() {
           />
         </div>
         {/* //* tab  */}
-        <Tab className="col-span-full" value="8">
+        <Tab className="col-span-full" value={"Buttons"}>
           <Tab.List>
             {tabData?.map(({ label }, tabIndex) => (
-              <Tab.Trigger key={tabIndex + 1} trigger={`${tabIndex + 1}`}>
+              <Tab.Trigger key={tabIndex + 1} trigger={label}>
                 {label}
               </Tab.Trigger>
             ))}
           </Tab.List>
-          <Tab.Content className="w-1/6" value="1">
+          <Tab.Content className="w-1/6" value="Buttons">
             <div className="grid grid-cols-2 gap-2">
               <Button variant="primary">Primary</Button>
               <Button variant="secondary">Secondary</Button>
@@ -137,7 +139,26 @@ export default function Page() {
               <Button variant="outline">Outline</Button>
             </div>
           </Tab.Content>
-          <Tab.Content className="w-1/3" value="2">
+          <Tab.Content className="w-1/3" value="Inputs">
+            <div className="flex flex-col gap-2">
+              <Input label="Username" className="w-full" />
+              <Input label="Phone number" type="number" className="w-full" />
+              <Input
+                label="Email"
+                type="email"
+                placeholder="example@gamil.com"
+                className="w-full "
+              />
+              <Input label="Date of birth" type="date" className="w-full" />
+              <Input
+                label="Date with time"
+                type="datetime-local"
+                className="w-full"
+              />
+              <Textarea placeholder="Type your message here." />
+            </div>
+          </Tab.Content>
+          <Tab.Content className="w-1/3" value="Checkboxes">
             <div className="col-span-3">
               <Checkbox
                 id="terms"
@@ -168,7 +189,7 @@ export default function Page() {
               />
             </div>
           </Tab.Content>
-          <Tab.Content className="w-1/3" value="3">
+          <Tab.Content className="w-1/2" value="Radio">
             <Radio
               id="terms"
               name="terms"
@@ -189,7 +210,7 @@ export default function Page() {
               label="Accept terms and conditions"
             />
           </Tab.Content>
-          <Tab.Content className="w-1/2" value="4">
+          <Tab.Content className="w-1/3" value="Avatar">
             <div className="flex items-center gap-2">
               <Avatar src={"https://github.com/shadcn.png"} fallBack="ZS" />
               <Avatar
@@ -199,26 +220,7 @@ export default function Page() {
               />
             </div>
           </Tab.Content>
-          <Tab.Content className="w-1/3" value="5">
-            <div className="flex flex-col gap-2">
-              <Input label="Username" className="w-full" />
-              <Input label="Phone number" type="number" className="w-full" />
-              <Input
-                label="Email"
-                type="email"
-                placeholder="example@gamil.com"
-                className="w-full "
-              />
-              <Input label="Date of birth" type="date" className="w-full" />
-              <Input
-                label="Date with time"
-                type="datetime-local"
-                className="w-full"
-              />
-              <Textarea placeholder="Type your message here." />
-            </div>
-          </Tab.Content>
-          <Tab.Content className="w-1/2" value="6">
+          <Tab.Content className="w-1/2" value="Card">
             <Card className="max-w-80 mx-auto">
               <Card.Header>
                 <Card.Title>Welcome to the Dashboard</Card.Title>
@@ -242,7 +244,7 @@ export default function Page() {
               </Card.Footer>
             </Card>
           </Tab.Content>
-          <Tab.Content className="w-1/2" value="7">
+          <Tab.Content className="w-1/2" value="Accordion">
             <Accordion defaultOpen="1" className="w-full col-span-4">
               <Accordion.Item>
                 <Accordion.Trigger triggerId="1">
@@ -275,7 +277,10 @@ export default function Page() {
               </Accordion.Item>
             </Accordion>
           </Tab.Content>
-          <Tab.Content className="w-1/2 bg-gray-100 flex gap-2" value="8">
+          <Tab.Content
+            className="w-1/2 bg-gray-100 flex gap-2"
+            value="Dropdown"
+          >
             <Dropdown
               data={{
                 items: defaultDropdownItems,
@@ -291,13 +296,13 @@ export default function Page() {
               }}
             />
           </Tab.Content>
-          <Tab.Content value="9" className="flex gap-2 w-1/3">
+          <Tab.Content value="Badge" className="flex gap-2 w-1/3">
             <Badge variant="default">Default</Badge>
             <Badge variant="danger">Danger</Badge>
             <Badge variant="warning">Warning</Badge>
             <Badge variant="success">Success</Badge>
           </Tab.Content>
-          <Tab.Content value="10" className="w-1/3">
+          <Tab.Content value="Dialog" className="w-1/3">
             <Dialog>
               <Dialog.Trigger variant="secondary">Open Dialog </Dialog.Trigger>
 
@@ -313,7 +318,7 @@ export default function Page() {
               </Dialog.Content>
             </Dialog>
           </Tab.Content>
-          <Tab.Content value="11" className="flex gap-2">
+          <Tab.Content value="Toggle Group" className="flex gap-2">
             <ToggleGroup>
               <ToggleGroup.GroupItem value={"bold"}>B</ToggleGroup.GroupItem>
               <ToggleGroup.GroupItem value={"italic"}>I</ToggleGroup.GroupItem>
@@ -333,7 +338,7 @@ export default function Page() {
               </ToggleGroup.GroupItem>
             </ToggleGroup>
           </Tab.Content>
-          <Tab.Content value="12" className="w-1/2">
+          <Tab.Content value="Slider" className="w-1/2">
             <Slider defaultValue={10} min={0} max={100} />
             <Slider defaultValue={10} min={0} max={100} variant="danger" />
             <Slider defaultValue={10} min={0} max={100} variant="success" />
@@ -346,7 +351,7 @@ export default function Page() {
               disabled
             />
           </Tab.Content>
-          <Tab.Content value="13">
+          <Tab.Content value="Carousel">
             <Carousel total={3} className="mx-auto">
               <Carousel.Content className="p-1">
                 <Carousel.Item className="bg-yellow-400 rounded-lg p-3 grid place-items-center">
@@ -361,7 +366,7 @@ export default function Page() {
               </Carousel.Content>
             </Carousel>
           </Tab.Content>
-          <Tab.Content value="14">
+          <Tab.Content value="Tooltip">
             <Tooltip>
               <Tooltip.Trigger>✨ Hover me!</Tooltip.Trigger>
               <Tooltip.Content>
@@ -369,7 +374,7 @@ export default function Page() {
               </Tooltip.Content>
             </Tooltip>
           </Tab.Content>
-          <Tab.Content value="15" className="p-10">
+          <Tab.Content value="Timeline" className="p-10">
             <Timeline>
               {timelineData?.map((timeline, timelineIndex) => {
                 return (
@@ -387,15 +392,19 @@ export default function Page() {
               })}
             </Timeline>
           </Tab.Content>
-          <Tab.Content value="16" className="w-1/4">
+          <Tab.Content value="File Uploader" className="w-1/4">
             <Uploader
               onUploadFile={(e) => console.log("e", e)}
               accept="image/*"
             >
               <Uploader.Action>Choose file</Uploader.Action>
-              <Uploader.Progress />
+              <Uploader.Progress className="h-1" />
               <Uploader.Upload>Upload</Uploader.Upload>
             </Uploader>
+          </Tab.Content>
+
+          <Tab.Content value="Switch" className="w-1/4">
+            <Switch onChange={(e) => console.log("e", e)} />
           </Tab.Content>
         </Tab>
       </div>
