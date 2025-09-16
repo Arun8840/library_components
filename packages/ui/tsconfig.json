@@ -1,8 +1,9 @@
 {
   "extends": "@zettastackpvt/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["src"],
+  "include": ["src", "jest.setup.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }

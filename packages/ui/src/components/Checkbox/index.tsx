@@ -5,8 +5,10 @@ import { CheckboxProps } from "./checkbox-type";
 import { cn } from "../../lib/utils";
 
 // Tailwind classes for label and input
-const labelClass = "flex flex-col gap-1 text-sm font-medium text-gray-700 p-2";
-const baseInputClass = "size-4 accent-stone-900 rounded border-gray-300";
+const labelClass =
+  "flex flex-col gap-1 text-sm font-medium text-gray-700 p-2 has-checked:bg-[var(--primary)]/10 has-checked:ring has-checked:ring-[var(--primary)] rounded-lg";
+const baseInputClass =
+  "size-4 accent-[var(--primary)] rounded border-gray-300 ";
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (

@@ -22,6 +22,7 @@ import {
   Timeline,
   Uploader,
   Switch,
+  Stepper,
 } from "@zettastackpvt/ui/index";
 
 const defaultNavItems = [
@@ -106,6 +107,7 @@ const tabData = [
   { label: "Timeline" },
   { label: "File Uploader" },
   { label: "Switch" },
+  { label: "Stepper" },
 ];
 
 export default function Page() {
@@ -137,6 +139,7 @@ export default function Page() {
               <Button variant="secondary">Secondary</Button>
               <Button variant="danger">Danger</Button>
               <Button variant="outline">Outline</Button>
+              <Button variant="success">Success</Button>
             </div>
           </Tab.Content>
           <Tab.Content className="w-1/3" value="Inputs">
@@ -158,38 +161,34 @@ export default function Page() {
               <Textarea placeholder="Type your message here." />
             </div>
           </Tab.Content>
-          <Tab.Content className="w-1/3" value="Checkboxes">
-            <div className="col-span-3">
-              <Checkbox
-                id="terms"
-                name="terms"
-                label="Accept terms and conditions"
-              />
-              <Checkbox
-                id="terms_condition_with_description"
-                name="terms_condition_with_description"
-                label="Accept terms and conditions"
-                description="By clicking this checkbox, you agree to the terms and conditions."
-                className="has-checked:bg-blue-500/10 has-checked:ring has-checked:ring-blue-500 inset rounded-lg"
-                inputClass="accent-blue-500"
-              />
-              <Checkbox
-                disabled
-                id="notification"
-                name="notification"
-                label="Accept terms and conditions"
-              />
-
-              <Progress value={40} max={100} label={"P rogress bar"} />
-              <Progress
-                disabled={true}
-                value={40}
-                max={100}
-                label="Disabled progress bar"
-              />
-            </div>
+          <Tab.Content className="w-1/3 flex flex-col gap-2" value="Checkboxes">
+            <Checkbox
+              id="terms"
+              name="terms"
+              label="Accept terms and conditions"
+            />
+            <Checkbox
+              id="terms_condition_with_description"
+              name="terms_condition_with_description"
+              label="Accept terms and conditions"
+              description="By clicking this checkbox, you agree to the terms and conditions."
+              className="inset rounded-lg"
+            />
+            <Checkbox
+              disabled
+              id="notification"
+              name="notification"
+              label="Accept terms and conditions"
+            />
+            <Progress value={40} max={100} label={"P rogress bar"} />
+            <Progress
+              disabled={true}
+              value={40}
+              max={100}
+              label="Disabled progress bar"
+            />
           </Tab.Content>
-          <Tab.Content className="w-1/2" value="Radio">
+          <Tab.Content className="w-1/2 flex flex-col gap-2" value="Radio">
             <Radio
               id="terms"
               name="terms"
@@ -200,8 +199,6 @@ export default function Page() {
               name="terms_condition_with_description"
               label="Accept terms and conditions"
               description="By clicking this checkbox, you agree to the terms and conditions."
-              className="has-checked:bg-green-500/10 has-checked:ring has-checked:ring-green-500 inset rounded-lg"
-              inputClass="accent-green-500"
             />
             <Radio
               disabled
@@ -304,7 +301,7 @@ export default function Page() {
           </Tab.Content>
           <Tab.Content value="Dialog" className="w-1/3">
             <Dialog>
-              <Dialog.Trigger variant="secondary">Open Dialog </Dialog.Trigger>
+              <Dialog.Trigger variant="primary">Open Dialog </Dialog.Trigger>
 
               <Dialog.Content>
                 <Dialog.Title>Are you absolutely sure?</Dialog.Title>
@@ -405,6 +402,57 @@ export default function Page() {
 
           <Tab.Content value="Switch" className="w-1/4">
             <Switch onChange={(e) => console.log("e", e)} />
+          </Tab.Content>
+          <Tab.Content value="Stepper" className="p-5">
+            <Stepper active={1} maxStep={4} showAction={true}>
+              <Stepper.List>
+                <Stepper.Item>
+                  <div>
+                    <h3 className="font-semibold text-lg py-2">
+                      Create an Account
+                    </h3>
+                    <p>
+                      Sign up with your email address to get started. Make sure
+                      to use a valid email so you can verify your account.
+                    </p>
+                  </div>
+                </Stepper.Item>
+                <Stepper.Item>
+                  <div>
+                    <h3 className="font-semibold text-lg py-2">
+                      Verify Your Email
+                    </h3>
+                    <p>
+                      Check your inbox for a verification link. Click the link
+                      to activate your account and continue the registration
+                      process.
+                    </p>
+                  </div>
+                </Stepper.Item>
+                <Stepper.Item>
+                  <div>
+                    <h3 className="font-semibold text-lg py-2">
+                      Complete Your Profile
+                    </h3>
+                    <p>
+                      Fill in your personal details and preferences to complete
+                      your profile. This helps us personalize your experience.
+                    </p>
+                  </div>
+                </Stepper.Item>
+                <Stepper.Item>
+                  <div>
+                    <h3 className="font-semibold text-lg py-2">
+                      Start Using the App
+                    </h3>
+                    <p>
+                      You’re all set! Explore the features and enjoy using the
+                      application.
+                    </p>
+                  </div>
+                </Stepper.Item>
+              </Stepper.List>
+            </Stepper>
           </Tab.Content>
         </Tab>
       </div>

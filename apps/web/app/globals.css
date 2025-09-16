@@ -1,3 +1,3 @@
-@import "tailwindcss";
-@import "@zettastackpvt/tailwind-config";
-
+@import 'tailwindcss';
+@import '@zettastackpvt/tailwind-config';
+@import '@zettastackpvt/ui/styles.css';

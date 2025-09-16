@@ -20,7 +20,7 @@ export const Switch: React.FC<SwitchProps> = (
     <label
       htmlFor={focusId}
       aria-checked={status}
-      className="border bg-white border-stone-200 w-11 inline-block rounded-full p-0.5 group"
+      className="bg-[var(--input)] w-9 inline-block rounded-full p-0.5 group has-checked:bg-[var(--primary)] transition-colors duration-150"
     >
       <input
         type="checkbox"
@@ -32,7 +32,7 @@ export const Switch: React.FC<SwitchProps> = (
 
       {/* //* pointer */}
       <div
-        className={`size-4 bg-stone-400 group-aria-[checked=true]:bg-green-600 rounded-full transition-transform duration-200 group-aria-[checked=true]:translate-x-5.5`}
+        className={`size-4 bg-white rounded-full transition-transform duration-200 group-aria-[checked=true]:translate-x-4`}
       />
     </label>
   );
