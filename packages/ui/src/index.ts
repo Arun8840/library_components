@@ -22,3 +22,4 @@ export { Tooltip } from "./components/Tooltip";
 export { Timeline } from "./components/Timeline";
 export { Uploader } from "./components/FileUploader";
 export { Switch } from "./components/Switch";
+export { Stepper } from "./components/Stepper";

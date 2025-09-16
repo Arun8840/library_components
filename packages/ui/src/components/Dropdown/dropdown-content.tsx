@@ -4,7 +4,7 @@ import { cn } from "../../lib/utils";
 import { useDropdownContext } from ".";
 
 const baseClass =
-  "absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg focus:outline-none";
+  "absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-[var(--card)] shadow-lg focus:outline-none";
 
 const positionClass = {
   bottom: "top-full mt-2",

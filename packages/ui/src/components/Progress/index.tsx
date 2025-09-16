@@ -3,7 +3,7 @@ import { ProgressProps } from "./progress-bar-types";
 import { cn } from "../../lib/utils";
 
 const baseClass =
-  "w-full h-3 rounded-lg overflow-hidden bg-gray-200 [&::-webkit-progress-bar]:bg-gray-200 [&::-webkit-progress-value]:bg-blue-500 [&::-webkit-progress-value]:rounded-lg [&::-moz-progress-bar]:bg-blue-500 aria-disabled:opacity-70";
+  "w-full h-3 rounded-lg overflow-hidden bg-gray-200 [&::-webkit-progress-bar]:bg-[var(--secondary)] [&::-webkit-progress-value]:bg-[var(--primary)] [&::-webkit-progress-value]:rounded-lg [&::-moz-progress-bar]:bg-[var(--primary)] aria-disabled:opacity-70";
 
 export const Progress: React.FC<ProgressProps> = ({
   className,

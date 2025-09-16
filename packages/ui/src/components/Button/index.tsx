@@ -5,11 +5,13 @@ import { cn } from "../../lib/utils";
 
 const variantKey = {
   primary:
-    "bg-stone-900 text-white hover:bg-stone-950 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
+    "bg-[var(--primary)] text-[var(--primary-foreground)] hover:bg-stone-950 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
   secondary:
-    "bg-gray-200 text-gray-900 hover:bg-gray-300 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
+    "bg-[var(--secondary)] text-[var(--secondary-foreground)] hover:bg-gray-300 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
   danger:
-    "bg-red-600 text-white hover:bg-red-700 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
+    "bg-[var(--danger)] text-[var(--danger-foreground)] hover:bg-red-700 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
+  success:
+    "bg-[var(--success)] text-[var(--success-foreground)] hover:bg-green-700 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
   outline:
     "border border-gray-400 text-gray-900 bg-transparent hover:bg-gray-100 px-3 py-1.5 text-sm rounded-lg transition-colors duration-100 cursor-pointer",
   none: "bg-transparent text-inherit border-none p-0 m-0 shadow-none hover:bg-transparent cursor-pointer",
@@ -26,7 +28,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type="button"
         {...props}
       >
-        {children ?? "Button"}
+        {children || "Button"}
       </button>
     );
   }

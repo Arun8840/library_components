@@ -11,7 +11,7 @@ const sliderVariants: Record<string, string> = {
 };
 
 const baseSliderClass =
-  "w-full h-2 bg-gray-200 rounded-lg  cursor-pointer disabled:pointer-events-none";
+  "w-full h-2 bg-[var(--secondary-foreground)] rounded-lg  cursor-pointer disabled:pointer-events-none";
 export const Slider: React.FC<SliderProps> = ({
   className,
   variant = "primary",

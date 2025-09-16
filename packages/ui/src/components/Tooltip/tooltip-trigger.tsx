@@ -6,7 +6,7 @@ import { cn } from "../../lib/utils";
 import { useTooltipContext } from "./tooltip-root";
 
 const baseClass =
-  "inline-flex items-center cursor-pointer px-3 py-1.5 rounded-lg text-sm bg-black text-white";
+  "inline-flex items-center cursor-pointer px-3 py-1.5 rounded-lg text-sm bg-[var(--primary)] text-[var(--secondary)]";
 export const TooltipTrigger: React.FC<TooltipTriggerProps> = ({
   className,
   children,
