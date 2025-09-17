@@ -5,7 +5,7 @@ import { ToggleGroupItemProps } from "./toggle-types";
 import { cn } from "../../lib/utils";
 
 const baseItemClass =
-  "px-3 py-1.5 disabled:pointer-events-none hover:bg-stone-100 w-full last:rounded-r first:rounded-l has-checked:bg-stone-200";
+  "px-3 py-1.5 disabled:pointer-events-none hover:bg-stone-100 w-full last:rounded-r first:rounded-l has-checked:bg-stone-200 has-disabled:pointer-events-none has-disabled:text-stone-400";
 
 export const ToggleGroupItem: React.FC<ToggleGroupItemProps> = ({
   children,
@@ -17,18 +17,14 @@ export const ToggleGroupItem: React.FC<ToggleGroupItemProps> = ({
   return (
     <label
       htmlFor={`toggle_${value}`}
-      className={cn(
-        baseItemClass,
-        disabled && "pointer-events-none text-stone-400",
-        className
-      )}
+      className={cn(baseItemClass, className)}
       aria-disabled={disabled}
     >
       <input
         type="checkbox"
         id={`toggle_${value}`}
-        hidden
         disabled={disabled}
+        className="sr-only"
         {...props}
       />
       {children}
