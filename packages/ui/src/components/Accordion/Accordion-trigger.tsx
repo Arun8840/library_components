@@ -33,13 +33,15 @@ const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 }) => {
   const { toggleItem, isOpen } = useAccordionContext();
 
+  const open = isOpen(triggerId);
   return (
     <button
       onClick={() => toggleItem(triggerId)}
-      className={cn(baseClass, className)}
+      className={cn(baseClass, className, "group/accordion")}
+      data-open={open}
     >
       <div>{children}</div>
-      <small className={cn(isOpen(triggerId) ? "rotate-180" : "rotate-0")}>
+      <small className="rotate-0 group-data-[open=true]/accordion:rotate-180 transition-transform">
         {ArrowIcon(18)}
       </small>
     </button>
