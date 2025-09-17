@@ -17,16 +17,17 @@ export const Badge: React.FC<BadgeProps> = ({
   ...props
 }) => {
   return (
-    <span
+    <button
       className={cn(
         "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium",
         variantClasses[variant],
         className
       )}
       {...props}
+      type="button"
     >
       {children ?? "Badge"}
-    </span>
+    </button>
   );
 };
 
