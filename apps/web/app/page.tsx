@@ -23,7 +23,7 @@ import {
   Uploader,
   Switch,
   Stepper,
-} from "@zettastackpvt/ui/index";
+} from "@zettastackpvt/ui/src/index";
 
 const defaultNavItems = [
   {

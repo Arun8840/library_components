@@ -10,9 +10,9 @@ export const CardAction: React.FC<CardDescriptionProps> = ({
   ...props
 }) => {
   return (
-    <p className={cn(baseClass, className)} {...props}>
+    <div className={cn(baseClass, className)} {...props}>
       {children}
-    </p>
+    </div>
   );
 };
 
