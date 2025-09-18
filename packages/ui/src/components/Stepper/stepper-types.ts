@@ -10,12 +10,12 @@ export interface StepperRootProps {
   maxStep: number;
 }
 
-export interface StepperListProps extends HTMLAttributes<HTMLDivElement> {
+export interface StepperListProps extends HTMLAttributes<HTMLUListElement> {
   children?: React.ReactNode;
   className?: string;
 }
 
-export interface StepperItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface StepperItemProps extends HTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode;
   className?: string;
   stepIndex?: number;
@@ -27,4 +27,6 @@ export interface StepperContextType {
   next: () => void;
   prev: () => void;
   reset: () => void;
+  existSteps?: boolean;
+  startSteps?: boolean;
 }

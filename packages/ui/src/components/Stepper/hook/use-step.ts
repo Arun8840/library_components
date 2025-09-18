@@ -17,12 +17,18 @@ function useStep(initialStep: number = 0, maxStep?: number) {
     setActive(initialStep);
   };
 
+  // Disable previous button when on the first step
+  const startSteps = active === 0;
+  const existSteps = active === maxStep;
+
   return {
     active,
     setActive,
     next,
     prev,
     reset,
+    existSteps,
+    startSteps,
   };
 }
 

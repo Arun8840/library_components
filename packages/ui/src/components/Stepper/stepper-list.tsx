@@ -16,7 +16,7 @@ export const StepList: React.FC<StepperListProps> = ({
     }
     return child;
   });
-  return <div className={cn(baseClass, className)}>{items}</div>;
+  return <ul className={cn(baseClass, className)}>{items}</ul>;
 };
 
 StepList.displayName = "StepList";
