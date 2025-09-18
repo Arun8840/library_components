@@ -26,12 +26,16 @@ export const CarouselContent: React.FC<CarouselContentProps> = ({
 
       <div className="flex items-center gap-2  justify-between absolute w-full inset-0 px-2">
         <Button
+          aria-label="previous"
+          type="button"
           onClick={prev}
           className="size-7 text-gray-800 hover:bg-stone-200 bg-inherit grid place-items-center p-0"
         >
           <ChevronLeft />
         </Button>
         <Button
+          aria-label="next"
+          type="button"
           onClick={next}
           className="size-7 text-gray-800 hover:bg-stone-200 bg-inherit grid place-items-center p-0"
         >

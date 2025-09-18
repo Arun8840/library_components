@@ -6,10 +6,11 @@ import { StepperAction } from "./stepper-action";
 
 const StepperContext = createContext<StepperContextType | null>(null);
 
-const baseClass = "flex flex-col gap-4";
+const baseClass = "flex flex-col gap-4 group/stepper";
 const StepperRoot: React.FC<StepperRootProps> = ({
   children,
   className,
+  showAction = true,
   active = 0,
   maxStep = 0,
 }) => {
@@ -17,7 +18,7 @@ const StepperRoot: React.FC<StepperRootProps> = ({
   return (
     <StepperContext.Provider value={stepValue}>
       <div className={cn(baseClass, className)}>{children}</div>
-      <StepperAction />
+      {showAction && <StepperAction />}
     </StepperContext.Provider>
   );
 };
@@ -28,6 +29,5 @@ export const useStepperContext = () => {
     throw new Error("Stepper components must be used within Stepper");
   return context;
 };
-``;
 
 export default StepperRoot;

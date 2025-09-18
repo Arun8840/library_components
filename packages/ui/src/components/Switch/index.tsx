@@ -26,8 +26,9 @@ export const Switch: React.FC<SwitchProps> = (
         type="checkbox"
         onChange={handleChange}
         id={focusId}
+        className="sr-only"
+        aria-label="Switch"
         {...otherProps}
-        hidden
       />
 
       {/* //* pointer */}

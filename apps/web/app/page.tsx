@@ -404,7 +404,7 @@ export default function Page() {
             <Switch onChange={(e) => console.log("e", e)} />
           </Tab.Content>
           <Tab.Content value="Stepper" className="p-5">
-            <Stepper active={1} maxStep={4} showAction={true}>
+            <Stepper active={1} maxStep={4}>
               <Stepper.List>
                 <Stepper.Item>
                   <div>

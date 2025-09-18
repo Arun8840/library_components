@@ -14,23 +14,28 @@ export const StepItem: React.FC<StepperItemProps> = ({
   const isActive = step === active;
 
   return (
-    <div data-active={isActive} className="flex-1 flex flex-col relative group">
+    <li
+      aria-label="stepper-content-container"
+      data-active={isActive}
+      className="flex-1 flex flex-col relative group"
+    >
       {/* //* pointer */}
-      <label className="flex items-center">
+      <div className="flex items-center">
         <div
+          aria-label="stpper-content"
           onClick={() => setActive(step)}
           className="rounded-full size-7 grid place-items-center bg-[var(--secondary)] group-data-[active=true]:bg-[var(--primary)] group-data-[active=true]:text-[var(--secondary)] cursor-pointer transition-colors "
         >
           {step}
         </div>
         <div className="border-t border-t-[var(--muted)] flex-1" />
-      </label>
+      </div>
 
       {/* //* content */}
       <div className="group-data-[active=true]:text-[var(--primary)] text-[var(--muted-foreground)] transition-transform scale-95 group-data-[active=true]:scale-none">
         {children}
       </div>
-    </div>
+    </li>
   );
 };
 
