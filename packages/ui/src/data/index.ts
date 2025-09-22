@@ -1,0 +1,113 @@
+export const defaultNavItems = [
+  {
+    label: "Home",
+    href: "/",
+    icon: "🏠",
+  },
+  {
+    label: "About",
+    href: "#",
+    icon: "ℹ️",
+  },
+  {
+    label: "Services",
+    href: "#",
+    icon: "🛠️",
+  },
+  {
+    label: "Contact",
+    href: "/#",
+    icon: "✉️",
+  },
+];
+
+export const defaultNavActions = [
+  {
+    label: "Login",
+    href: "#",
+    variant: "primary",
+  },
+  {
+    label: "Sign-up",
+    href: "#",
+    variant: "secondary",
+  },
+];
+export const timelineData = [
+  {
+    title: "Project Kickoff",
+    description:
+      "The team met to discuss project goals, deliverables, and timelines. Roles were assigned and initial requirements were gathered.",
+  },
+  {
+    title: "First Prototype Released",
+    description:
+      "The initial prototype was completed and shared with stakeholders for feedback. Early testing identified key areas for improvement.",
+  },
+  {
+    title: "Beta Launch",
+    description:
+      "A beta version was launched to a limited audience. Feedback was collected and used to fix bugs and enhance features.",
+  },
+  {
+    title: "Public Release",
+    description:
+      "The project was released to the public. Ongoing support and updates are planned based on user feedback.",
+  },
+];
+
+export const defaultDropdownItems = [
+  { key: "item1", value: "Item 1" },
+  { key: "item2", value: "Item 2" },
+  { key: "item3", value: "Item 3" },
+];
+
+export const tabData = [
+  { label: "Buttons" },
+  { label: "Inputs" },
+  { label: "Checkboxes" },
+  { label: "Radio" },
+  { label: "Avatar" },
+  { label: "Card" },
+  { label: "Accordion" },
+  { label: "Dropdown" },
+  { label: "Badge" },
+  { label: "Dialog" },
+  { label: "Toggle Group" },
+  { label: "Slider" },
+  { label: "Carousel" },
+  { label: "Tooltip" },
+  { label: "Timeline" },
+  { label: "File Uploader" },
+  { label: "Switch" },
+  { label: "Stepper" },
+  { label: "Url" },
+  { label: "Tree" },
+  { label: "Table" },
+  { label: "Divider" },
+  { label: "Bread crums" },
+  { label: "Tree" },
+];
+
+export const treeData = [
+  {
+    groupLabel: "Landing page",
+    items: [
+      { label: "Hero Section" },
+      { label: "Call to Action" },
+      { label: "Testimonials" },
+    ],
+  },
+  {
+    groupLabel: "About section",
+    items: [{ label: "Our Mission" }, { label: "Team" }, { label: "History" }],
+  },
+  {
+    groupLabel: "Features",
+    items: [
+      { label: "Real-time Collaboration" },
+      { label: "Customizable Themes" },
+      { label: "Analytics Dashboard" },
+    ],
+  },
+];
