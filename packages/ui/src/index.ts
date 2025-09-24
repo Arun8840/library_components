@@ -23,3 +23,7 @@ export { Timeline } from "./components/Timeline";
 export { Uploader } from "./components/FileUploader";
 export { Switch } from "./components/Switch";
 export { Stepper } from "./components/Stepper";
+export { Url } from "./components/Url";
+export { Tree } from "./components/Tree";
+export { Divider } from "./components/Divider";
+export { Table } from "./components/Table";

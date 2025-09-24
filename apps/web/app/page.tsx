@@ -1,6 +1,14 @@
 "use client";
 
 import {
+  defaultDropdownItems,
+  defaultNavActions,
+  defaultNavItems,
+  tabData,
+  timelineData,
+  treeData,
+} from "@zettastackpvt/ui/src/data/index";
+import {
   Accordion,
   Avatar,
   Badge,
@@ -23,93 +31,12 @@ import {
   Uploader,
   Switch,
   Stepper,
+  Url,
+  Tree,
+  Divider,
+  Table,
 } from "@zettastackpvt/ui/src/index";
-
-const defaultNavItems = [
-  {
-    label: "Home",
-    href: "/",
-    icon: "🏠",
-  },
-  {
-    label: "About",
-    href: "#",
-    icon: "ℹ️",
-  },
-  {
-    label: "Services",
-    href: "#",
-    icon: "🛠️",
-  },
-  {
-    label: "Contact",
-    href: "/#",
-    icon: "✉️",
-  },
-];
-
-const defaultNavActions = [
-  {
-    label: "Login",
-    href: "#",
-    variant: "primary",
-  },
-  {
-    label: "Sign-up",
-    href: "#",
-    variant: "secondary",
-  },
-];
-const timelineData = [
-  {
-    title: "Project Kickoff",
-    description:
-      "The team met to discuss project goals, deliverables, and timelines. Roles were assigned and initial requirements were gathered.",
-  },
-  {
-    title: "First Prototype Released",
-    description:
-      "The initial prototype was completed and shared with stakeholders for feedback. Early testing identified key areas for improvement.",
-  },
-  {
-    title: "Beta Launch",
-    description:
-      "A beta version was launched to a limited audience. Feedback was collected and used to fix bugs and enhance features.",
-  },
-  {
-    title: "Public Release",
-    description:
-      "The project was released to the public. Ongoing support and updates are planned based on user feedback.",
-  },
-];
-
-const defaultDropdownItems = [
-  { key: "item1", value: "Item 1" },
-  { key: "item2", value: "Item 2" },
-  { key: "item3", value: "Item 3" },
-];
-
-const tabData = [
-  { label: "Buttons" },
-  { label: "Inputs" },
-  { label: "Checkboxes" },
-  { label: "Radio" },
-  { label: "Avatar" },
-  { label: "Card" },
-  { label: "Accordion" },
-  { label: "Dropdown" },
-  { label: "Badge" },
-  { label: "Dialog" },
-  { label: "Toggle Group" },
-  { label: "Slider" },
-  { label: "Carousel" },
-  { label: "Tooltip" },
-  { label: "Timeline" },
-  { label: "File Uploader" },
-  { label: "Switch" },
-  { label: "Stepper" },
-];
-
+import { Home } from "lucide-react";
 export default function Page() {
   return (
     <main className="p-5 bg-slate-100 min-h-screen  gap-2">
@@ -453,6 +380,81 @@ export default function Page() {
                 </Stepper.Item>
               </Stepper.List>
             </Stepper>
+          </Tab.Content>
+          <Tab.Content value="Url" className="flex items-center gap-2">
+            <Url
+              label="Zetta stack"
+              href="https://zettastack.com/"
+              target="_blank"
+            />
+            <Url
+              label="Disabled"
+              href="https://zettastack.com/"
+              target="_blank"
+              disabled
+            />
+          </Tab.Content>
+
+          <Tab.Content value="Tree">
+            <Tree collapsible defaultOpen={"Landing page"}>
+              {treeData?.map((group, groupIndex) => {
+                return (
+                  <Tree.Group
+                    key={`${groupIndex}_${group?.groupLabel}`}
+                    groupLabel={group?.groupLabel}
+                    icon={() => (
+                      <>
+                        <Home size={15} />
+                      </>
+                    )}
+                  >
+                    {group?.items?.length > 0 &&
+                      group?.items?.map((groupItem, itemIndex) => {
+                        return (
+                          <Tree.Item key={`${itemIndex}_${groupItem?.label}`}>
+                            {groupItem?.label}
+                          </Tree.Item>
+                        );
+                      })}
+                  </Tree.Group>
+                );
+              })}
+            </Tree>
+          </Tab.Content>
+
+          <Tab.Content value="Divider" className="flex flex-col gap-2">
+            <div className="flex h-full">
+              <span>Home</span>
+              <Divider direction="vertical" />
+              <span>About</span>
+              <Divider direction="vertical" />
+              <span>Settings</span>
+            </div>
+            <p className="w-1/2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              illum ex beatae doloribus fuga voluptatem hic voluptatibus,
+            </p>
+            <Divider className="w-1/2" />
+            <p className="w-1/2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              illum ex beatae doloribus fuga voluptatem hic voluptatibus,
+              impedit repellat nostrum incidunt tempore, fugit voluptas deleniti
+              nisi quibusdam, rerum nihil unde!
+            </p>
+          </Tab.Content>
+
+          <Tab.Content value="Table">
+            <Table>
+              <Table.Caption>A list of your recent invoices.</Table.Caption>
+              <Table.Header>
+                <Table.Row>
+                  <Table.Head>Invoice</Table.Head>
+                  <Table.Head>Status</Table.Head>
+                  <Table.Head>Method</Table.Head>
+                  <Table.Head>Amount</Table.Head>
+                </Table.Row>
+              </Table.Header>
+            </Table>
           </Tab.Content>
         </Tab>
       </div>
