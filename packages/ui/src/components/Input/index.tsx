@@ -2,7 +2,7 @@ import React from "react";
 import { InputProps } from "./input-types";
 import { cn } from "../../lib/utils";
 const defaultInputClass =
-  "block rounded-md border border-gray-300 px-3 py-2 text-sm  placeholder-gray-400 focus:outline-3 focus:outline-[var(--primary)]/20 bg-white shadow";
+  "block rounded-md border border-gray-300 px-3 py-2 text-sm  placeholder-gray-400 focus:outline-1 focus:outline-[var(--primary)]/20 bg-white shadow";
 
 export const Input: React.FC<InputProps> = ({
   className,

@@ -86,7 +86,6 @@ export const tabData = [
   { label: "Table" },
   { label: "Divider" },
   { label: "Bread crums" },
-  { label: "Tree" },
 ];
 
 export const treeData = [
@@ -109,5 +108,38 @@ export const treeData = [
       { label: "Customizable Themes" },
       { label: "Analytics Dashboard" },
     ],
+  },
+];
+
+export const tableData = [
+  {
+    invoice: "INV-001",
+    status: "Paid",
+    method: "Credit Card",
+    amount: "$250.00",
+  },
+  {
+    invoice: "INV-002",
+    status: "Pending",
+    method: "PayPal",
+    amount: "$150.00",
+  },
+  {
+    invoice: "INV-003",
+    status: "Overdue",
+    method: "Bank Transfer",
+    amount: "$500.00",
+  },
+  {
+    invoice: "INV-004",
+    status: "Paid",
+    method: "Credit Card",
+    amount: "$320.00",
+  },
+  {
+    invoice: "INV-005",
+    status: "Refunded",
+    method: "PayPal",
+    amount: "$75.00",
   },
 ];

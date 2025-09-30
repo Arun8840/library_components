@@ -1,17 +1,24 @@
 import { render, screen } from "@testing-library/react";
-import { Dropdown } from ".";
 import userEvent from "@testing-library/user-event";
+import { Dropdown } from ".";
 
 describe("Dropdown component", () => {
   it("Dropdown component render correctly without any props", () => {
+    const defaultDropdownItems = [
+      { key: "item1", value: "Item 1" },
+      { key: "item2", value: "Item 2" },
+      { key: "item3", value: "Item 3" },
+    ];
     render(
       <>
-        <Dropdown
-          data={{
-            items: [],
-            placeholder: "Select",
-          }}
-        />
+        <Dropdown className="w-80">
+          <Dropdown.Trigger>Select</Dropdown.Trigger>
+          <Dropdown.Content>
+            {defaultDropdownItems.map((item) => (
+              <Dropdown.Item key={item.key}>{item.value}</Dropdown.Item>
+            ))}
+          </Dropdown.Content>
+        </Dropdown>
       </>
     );
 
@@ -24,12 +31,14 @@ describe("Dropdown component", () => {
       { key: "item3", value: "Item 3" },
     ];
     render(
-      <Dropdown
-        data={{
-          items: defaultDropdownItems,
-          placeholder: "Select Items",
-        }}
-      />
+      <Dropdown className="w-80">
+        <Dropdown.Trigger>Select Items</Dropdown.Trigger>
+        <Dropdown.Content>
+          {defaultDropdownItems.map((item) => (
+            <Dropdown.Item key={item.key}>{item.value}</Dropdown.Item>
+          ))}
+        </Dropdown.Content>
+      </Dropdown>
     );
 
     const dropdownTrigger = screen.getByRole("button", {

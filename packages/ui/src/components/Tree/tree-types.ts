@@ -1,7 +1,5 @@
 import React, { HTMLAttributes } from "react";
-export interface TreeRootTypes {
-  children: React.ReactNode;
-  className?: string;
+export interface TreeRootTypes extends HTMLAttributes<HTMLDivElement> {
   defaultOpen?: string;
   collapsible?: boolean;
 }

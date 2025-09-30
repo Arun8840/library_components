@@ -1,9 +1,10 @@
 import React from "react";
-import { TableHeadeTypes } from "./table-types";
 import { cn } from "../../lib/utils";
+import { TableHeaderTypes } from "./table-types";
 
-const baseClass = "border p-2 text-stone-600 font-medium text-[15px]";
-export const TableHeade: React.FC<TableHeadeTypes> = ({
+const baseClass =
+  "border-b border-gray-300 p-2 text-start text-stone-600 font-medium text-[15px]";
+export const TableHeade: React.FC<TableHeaderTypes> = ({
   children,
   className,
 }) => {

@@ -31,6 +31,7 @@ const config: Config = {
   moduleNameMapper: {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
   },
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
   testMatch: [
     "**/__tests__/**/*.(ts|tsx|js|jsx)",
     "**/?(*.)+(spec|test).(ts|tsx|js|jsx)",

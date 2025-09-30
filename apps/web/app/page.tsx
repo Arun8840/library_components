@@ -5,6 +5,7 @@ import {
   defaultNavActions,
   defaultNavItems,
   tabData,
+  tableData,
   timelineData,
   treeData,
 } from "@zettastackpvt/ui/src/data/index";
@@ -15,7 +16,6 @@ import {
   Button,
   Card,
   Checkbox,
-  Dropdown,
   Input,
   Navbar,
   Progress,
@@ -35,6 +35,7 @@ import {
   Tree,
   Divider,
   Table,
+  Dropdown,
 } from "@zettastackpvt/ui/src/index";
 import { Home } from "lucide-react";
 export default function Page() {
@@ -205,20 +206,22 @@ export default function Page() {
             className="w-1/2 bg-gray-100 flex gap-2"
             value="Dropdown"
           >
-            <Dropdown
-              data={{
-                items: defaultDropdownItems,
-                placeholder: "Select Components",
-              }}
-            />
-
-            <Dropdown
-              data={{
-                items: defaultDropdownItems,
-                placeholder: "Disabled Select",
-                disabled: true,
-              }}
-            />
+            <Dropdown className="w-80">
+              <Dropdown.Trigger>Select</Dropdown.Trigger>
+              <Dropdown.Content>
+                {defaultDropdownItems.map((item) => (
+                  <Dropdown.Item key={item.key}>{item.value}</Dropdown.Item>
+                ))}
+              </Dropdown.Content>
+            </Dropdown>
+            <Dropdown className="w-80">
+              <Dropdown.Trigger disabled>Disabled</Dropdown.Trigger>
+              <Dropdown.Content>
+                {defaultDropdownItems.map((item) => (
+                  <Dropdown.Item key={item.key}>{item.value}</Dropdown.Item>
+                ))}
+              </Dropdown.Content>
+            </Dropdown>
           </Tab.Content>
           <Tab.Content value="Badge" className="flex gap-2 w-1/3">
             <Badge variant="default">Default</Badge>
@@ -443,17 +446,52 @@ export default function Page() {
             </p>
           </Tab.Content>
 
-          <Tab.Content value="Table">
-            <Table>
+          <Tab.Content value="Table" className="w-1/2">
+            <Table className="border border-gray-300 rounded">
               <Table.Caption>A list of your recent invoices.</Table.Caption>
+              {/* //* filter */}
+              <Table.Filter>
+                <Table.Search
+                  searchKeys={["Status"]}
+                  placeholder="Search by Invoice..."
+                />
+                <Table.DropDown
+                  keys={["Invoice", "Status", "Method", "Amount"]}
+                />
+              </Table.Filter>
+
+              {/* //* header */}
               <Table.Header>
                 <Table.Row>
                   <Table.Head>Invoice</Table.Head>
                   <Table.Head>Status</Table.Head>
                   <Table.Head>Method</Table.Head>
-                  <Table.Head>Amount</Table.Head>
+                  <Table.Head className="text-end">Amount</Table.Head>
                 </Table.Row>
               </Table.Header>
+
+              {/* //* body of the table data */}
+              <Table.Body>
+                {tableData?.map((row, rowIndex) => {
+                  const isPaid = row?.status === "Paid";
+                  return (
+                    <Table.Row
+                      key={`tablecell_${rowIndex}`}
+                      data-ispaid={isPaid}
+                      className="group"
+                    >
+                      <Table.Cell>{row?.invoice}</Table.Cell>
+                      <Table.Cell className="group-data-[ispaid=true]:text-green-600">
+                        {row?.status}
+                      </Table.Cell>
+                      <Table.Cell>{row?.method}</Table.Cell>
+                      <Table.Cell className="text-end">
+                        {row?.amount}
+                      </Table.Cell>
+                    </Table.Row>
+                  );
+                })}
+              </Table.Body>
             </Table>
           </Tab.Content>
         </Tab>
