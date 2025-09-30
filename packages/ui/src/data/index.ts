@@ -86,7 +86,6 @@ export const tabData = [
   { label: "Table" },
   { label: "Divider" },
   { label: "Bread crums" },
-  { label: "Tree" },
 ];
 
 export const treeData = [
@@ -110,4 +109,54 @@ export const treeData = [
       { label: "Analytics Dashboard" },
     ],
   },
+];
+
+export const tableData = [
+  {
+    invoice: "INV-001",
+    status: "Paid",
+    method: "Credit Card",
+    amount: "$250.00",
+  },
+  {
+    invoice: "INV-002",
+    status: "Pending",
+    method: "PayPal",
+    amount: "$150.00",
+  },
+  {
+    invoice: "INV-003",
+    status: "Overdue",
+    method: "Bank Transfer",
+    amount: "$500.00",
+  },
+  {
+    invoice: "INV-004",
+    status: "Paid",
+    method: "Credit Card",
+    amount: "$320.00",
+  },
+  {
+    invoice: "INV-005",
+    status: "Refunded",
+    method: "PayPal",
+    amount: "$75.00",
+  },
+];
+
+export const usersData = [
+  { id: "1", name: "John", email: "john@email.com", status: "active" },
+  { id: "2", name: "Jane", email: "jane@email.com", status: "inactive" },
+  { id: "3", name: "Sam", email: "sam@email.com", status: "active" },
+  { id: "4", name: "Alex", email: "alex@email.com", status: "inactive" },
+  { id: "5", name: "Emily", email: "emily@email.com", status: "active" },
+  { id: "6", name: "Michael", email: "michael@email.com", status: "inactive" },
+  { id: "7", name: "Olivia", email: "olivia@email.com", status: "active" },
+  { id: "8", name: "David", email: "david@email.com", status: "inactive" },
+  { id: "9", name: "Sophia", email: "sophia@email.com", status: "active" },
+  { id: "10", name: "Daniel", email: "daniel@email.com", status: "inactive" },
+  { id: "11", name: "Grace", email: "grace@email.com", status: "active" },
+  { id: "12", name: "Liam", email: "liam@email.com", status: "inactive" },
+  { id: "13", name: "Ava", email: "ava@email.com", status: "active" },
+  { id: "14", name: "Noah", email: "noah@email.com", status: "inactive" },
 ];

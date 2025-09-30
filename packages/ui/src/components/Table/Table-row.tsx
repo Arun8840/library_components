@@ -1,9 +1,9 @@
 import React from "react";
-import { TableHeadeTypes, TableRowTypes } from "./table-types";
+import { TableRowProps } from "./table-types";
 import { cn } from "../../lib/utils";
 
-const baseClass = "";
-export const TableRow: React.FC<TableRowTypes> = ({ children, className }) => {
+const baseClass = "hover:bg-stone-300/20 transition-colors";
+export const TableRow: React.FC<TableRowProps> = ({ children, className }) => {
   return <tr className={cn(baseClass, className)}>{children}</tr>;
 };
 

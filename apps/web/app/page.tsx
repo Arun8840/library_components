@@ -5,8 +5,10 @@ import {
   defaultNavActions,
   defaultNavItems,
   tabData,
+  tableData,
   timelineData,
   treeData,
+  usersData,
 } from "@zettastackpvt/ui/src/data/index";
 import {
   Accordion,
@@ -15,7 +17,6 @@ import {
   Button,
   Card,
   Checkbox,
-  Dropdown,
   Input,
   Navbar,
   Progress,
@@ -34,9 +35,13 @@ import {
   Url,
   Tree,
   Divider,
+  Dropdown,
   Table,
+  TableProvider,
 } from "@zettastackpvt/ui/src/index";
+import RenderTable from "@zettastackpvt/ui/src/utility/render-table";
 import { Home } from "lucide-react";
+
 export default function Page() {
   return (
     <main className="p-5 bg-slate-100 min-h-screen  gap-2">
@@ -205,20 +210,22 @@ export default function Page() {
             className="w-1/2 bg-gray-100 flex gap-2"
             value="Dropdown"
           >
-            <Dropdown
-              data={{
-                items: defaultDropdownItems,
-                placeholder: "Select Components",
-              }}
-            />
-
-            <Dropdown
-              data={{
-                items: defaultDropdownItems,
-                placeholder: "Disabled Select",
-                disabled: true,
-              }}
-            />
+            <Dropdown className="w-80">
+              <Dropdown.Trigger>Select</Dropdown.Trigger>
+              <Dropdown.Content>
+                {defaultDropdownItems.map((item) => (
+                  <Dropdown.Item key={item.key}>{item.value}</Dropdown.Item>
+                ))}
+              </Dropdown.Content>
+            </Dropdown>
+            <Dropdown className="w-80">
+              <Dropdown.Trigger disabled>Disabled</Dropdown.Trigger>
+              <Dropdown.Content>
+                {defaultDropdownItems.map((item) => (
+                  <Dropdown.Item key={item.key}>{item.value}</Dropdown.Item>
+                ))}
+              </Dropdown.Content>
+            </Dropdown>
           </Tab.Content>
           <Tab.Content value="Badge" className="flex gap-2 w-1/3">
             <Badge variant="default">Default</Badge>
@@ -443,18 +450,15 @@ export default function Page() {
             </p>
           </Tab.Content>
 
-          <Tab.Content value="Table">
-            <Table>
-              <Table.Caption>A list of your recent invoices.</Table.Caption>
-              <Table.Header>
-                <Table.Row>
-                  <Table.Head>Invoice</Table.Head>
-                  <Table.Head>Status</Table.Head>
-                  <Table.Head>Method</Table.Head>
-                  <Table.Head>Amount</Table.Head>
-                </Table.Row>
-              </Table.Header>
-            </Table>
+          <Tab.Content value="Table" className="w-1/2">
+            <TableProvider
+              pageSize={5}
+              data={usersData}
+              searchKeys={["name"]}
+              columns={["name", "email", "status"]}
+            >
+              <RenderTable />
+            </TableProvider>
           </Tab.Content>
         </Tab>
       </div>

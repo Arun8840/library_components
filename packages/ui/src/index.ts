@@ -12,7 +12,6 @@ export { Textarea } from "./components/Textarea";
 export { Progress } from "./components/Progress";
 export { Tab } from "./components/Tab";
 export { Navbar } from "./components/Navbar";
-export { Dropdown } from "./components/Dropdown";
 export { Badge } from "./components/Badge";
 export { Dialog } from "./components/Dialog";
 export { ToggleGroup } from "./components/ToggleGroup";
@@ -26,4 +25,6 @@ export { Stepper } from "./components/Stepper";
 export { Url } from "./components/Url";
 export { Tree } from "./components/Tree";
 export { Divider } from "./components/Divider";
-export { Table } from "./components/Table";
+export { Dropdown } from "./components/Dropdown";
+
+export { Table, TableProvider, useTable } from "./components/Table";

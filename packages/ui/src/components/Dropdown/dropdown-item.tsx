@@ -1,12 +1,12 @@
 import React from "react";
 import { DropdownItemProps } from "./dropdown-types";
 import { cn } from "../../lib/utils";
-import { useDropdownContext } from ".";
+import { useDropdownContext } from "./dropdown-root";
 
 const baseClass =
-  "block w-full text-left px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none";
+  "block w-full text-left px-2 py-1.5 text-sm text-gray-700 hover:bg-stone-500/10 rounded focus:outline-none";
 
-const DropdownItem: React.FC<DropdownItemProps> = ({
+export const DropdownItem: React.FC<DropdownItemProps> = ({
   className,
   children,
   onClick,
@@ -28,4 +28,4 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
   );
 };
 
-export default DropdownItem;
+DropdownItem.displayName = "DropdownItem";

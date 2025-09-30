@@ -1,15 +1,14 @@
 import React from "react";
-import { TableHeadeTypes } from "./table-types";
+import { TableHeadProps } from "./table-types";
 import { cn } from "../../lib/utils";
 
-const baseClass = "border p-2 text-stone-600 font-medium text-[15px]";
-export const TableHeade: React.FC<TableHeadeTypes> = ({
+const baseClass =
+  "text-start last:text-end text-stone-700 text-[14px] font-medium p-2 capitalize";
+export const TableHead: React.FC<TableHeadProps> = ({
   children,
   className,
 }) => {
-  return (
-    <th className={cn(baseClass, className, "border-collapse")}>{children}</th>
-  );
+  return <th className={cn(baseClass, className)}>{children}</th>;
 };
 
-TableHeade.displayName = "TableHeade";
+TableHead.displayName = "TableHead";

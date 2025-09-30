@@ -5,13 +5,7 @@ export type DropdownItemType = {
   value: string;
 };
 
-export interface DropdownRootProps extends HTMLAttributes<HTMLDivElement> {
-  data: {
-    placeholder: string;
-    items: DropdownItemType[];
-    disabled?: boolean;
-  };
-}
+export interface DropdownRootProps extends HTMLAttributes<HTMLDivElement> {}
 
 export interface DropdownTriggerProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
