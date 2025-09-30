@@ -1,17 +1,14 @@
+import React from "react";
+import { TableCellProps } from "./table-types";
 import { cn } from "../../lib/utils";
-import { TableCellTypes } from "./table-types";
 
-const baseClass = "p-2 text-sm border-b last:text-end border-gray-300";
-export const TableCell: React.FC<TableCellTypes> = ({
+const baseClass = "border-b border-stone-300 p-1.5 text-[14px] last:text-end";
+
+export const TableCell: React.FC<TableCellProps> = ({
   children,
   className,
-  ...otherProps
 }) => {
-  return (
-    <td className={cn(baseClass, className)} {...otherProps}>
-      {children}
-    </td>
-  );
+  return <td className={cn(baseClass, className)}>{children}</td>;
 };
 
 TableCell.displayName = "TableCell";

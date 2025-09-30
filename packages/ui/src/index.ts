@@ -25,5 +25,6 @@ export { Stepper } from "./components/Stepper";
 export { Url } from "./components/Url";
 export { Tree } from "./components/Tree";
 export { Divider } from "./components/Divider";
-export { Table } from "./components/Table";
 export { Dropdown } from "./components/Dropdown";
+
+export { Table, TableProvider, useTable } from "./components/Table";

@@ -1,24 +1,21 @@
 import { TableBody } from "./Table-body";
-import { TableCaption } from "./Table-caption";
 import { TableCell } from "./Table-cell";
-import { TableFilter } from "./Table-filter";
-import { TableDropdown } from "./Table-filter-dropdown";
-import { TableSearch } from "./Table-filter-search";
-import { TableHeade } from "./Table-head";
 import { TableHeader } from "./Table-header";
+import { TableToolBar } from "./Table-toolbar";
+import { TableHead } from "./Table-Head";
 import TableRoot from "./Table-root";
+import { TableProvider, useTable } from "./Table-provider";
 import { TableRow } from "./Table-row";
+import { TablePagination } from "./Table-pagination";
 
 const Table = Object.assign(TableRoot, {
-  Caption: TableCaption,
   Header: TableHeader,
-  Head: TableHeade,
+  Heade: TableHead,
   Row: TableRow,
   Body: TableBody,
+  Toolbar: TableToolBar,
   Cell: TableCell,
-  Filter: TableFilter,
-  DropDown: TableDropdown,
-  Search: TableSearch,
+  Pagination: TablePagination,
 });
 
-export { Table };
+export { Table, TableProvider, useTable };

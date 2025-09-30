@@ -1,9 +1,9 @@
 import React from "react";
-import { TableHeaderTypes } from "./table-types";
+import { TableHeaderProps } from "./table-types";
 import { cn } from "../../lib/utils";
 
-const baseClass = "";
-export const TableHeader: React.FC<TableHeaderTypes> = ({
+const baseClass = "border-b border-stone-300";
+export const TableHeader: React.FC<TableHeaderProps> = ({
   children,
   className,
 }) => {

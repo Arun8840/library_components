@@ -8,6 +8,7 @@ import {
   tableData,
   timelineData,
   treeData,
+  usersData,
 } from "@zettastackpvt/ui/src/data/index";
 import {
   Accordion,
@@ -34,10 +35,13 @@ import {
   Url,
   Tree,
   Divider,
-  Table,
   Dropdown,
+  Table,
+  TableProvider,
 } from "@zettastackpvt/ui/src/index";
+import RenderTable from "@zettastackpvt/ui/src/utility/render-table";
 import { Home } from "lucide-react";
+
 export default function Page() {
   return (
     <main className="p-5 bg-slate-100 min-h-screen  gap-2">
@@ -447,52 +451,14 @@ export default function Page() {
           </Tab.Content>
 
           <Tab.Content value="Table" className="w-1/2">
-            <Table className="border border-gray-300 rounded">
-              <Table.Caption>A list of your recent invoices.</Table.Caption>
-              {/* //* filter */}
-              <Table.Filter>
-                <Table.Search
-                  searchKeys={["Status"]}
-                  placeholder="Search by Invoice..."
-                />
-                <Table.DropDown
-                  keys={["Invoice", "Status", "Method", "Amount"]}
-                />
-              </Table.Filter>
-
-              {/* //* header */}
-              <Table.Header>
-                <Table.Row>
-                  <Table.Head>Invoice</Table.Head>
-                  <Table.Head>Status</Table.Head>
-                  <Table.Head>Method</Table.Head>
-                  <Table.Head className="text-end">Amount</Table.Head>
-                </Table.Row>
-              </Table.Header>
-
-              {/* //* body of the table data */}
-              <Table.Body>
-                {tableData?.map((row, rowIndex) => {
-                  const isPaid = row?.status === "Paid";
-                  return (
-                    <Table.Row
-                      key={`tablecell_${rowIndex}`}
-                      data-ispaid={isPaid}
-                      className="group"
-                    >
-                      <Table.Cell>{row?.invoice}</Table.Cell>
-                      <Table.Cell className="group-data-[ispaid=true]:text-green-600">
-                        {row?.status}
-                      </Table.Cell>
-                      <Table.Cell>{row?.method}</Table.Cell>
-                      <Table.Cell className="text-end">
-                        {row?.amount}
-                      </Table.Cell>
-                    </Table.Row>
-                  );
-                })}
-              </Table.Body>
-            </Table>
+            <TableProvider
+              pageSize={5}
+              data={usersData}
+              searchKeys={["name"]}
+              columns={["name", "email", "status"]}
+            >
+              <RenderTable />
+            </TableProvider>
           </Tab.Content>
         </Tab>
       </div>
