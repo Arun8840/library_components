@@ -13,7 +13,7 @@ export interface TableContainerProps
 
 export interface TableToolbarProps {
   className?: string;
-  placeholder?: string;
+  children?: React.ReactNode;
 }
 
 export interface TableHeaderProps

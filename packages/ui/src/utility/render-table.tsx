@@ -1,14 +1,90 @@
 "use client";
-import { Logs } from "lucide-react";
+import { Check, Logs } from "lucide-react";
 import { Checkbox } from "../components/Checkbox";
 import { Table, useTable } from "../components/Table";
+import { Input } from "../components/Input";
+import { Dropdown } from "../components/Dropdown";
 
 const RenderTable = () => {
-  const { data, hiddenColumns, columns } = useTable();
+  const {
+    data,
+    hiddenColumns,
+    columns,
+    searchTerm,
+    setSearchTerm,
+    setHiddenColumns,
+    filterValue,
+    setFilterValue,
+  } = useTable();
 
   return (
     <>
-      <Table.Toolbar placeholder="Search email..." />
+      <Table.Toolbar>
+        <div className="flex-1">
+          <Input
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e?.target?.value)}
+            placeholder={"Search Email ..."}
+            showLabel={false}
+            className="w-1/2"
+          />
+        </div>
+
+        <div>
+          <Dropdown>
+            <Dropdown.Trigger className="border border-stone-300 min-w-50">
+              Columns
+            </Dropdown.Trigger>
+            <Dropdown.Content>
+              {columns.map((col, idx) => {
+                const checked = hiddenColumns?.includes(col);
+                return (
+                  <Dropdown.Item
+                    onClick={(e) => {
+                      if (col) {
+                        setHiddenColumns((prev: string[]) =>
+                          prev.includes(col)
+                            ? prev.filter((c) => c !== col)
+                            : [...prev, col]
+                        );
+                      }
+                    }}
+                    key={idx}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Check
+                        data-checked={checked}
+                        size={18}
+                        className="invisible data-[checked=true]:visible"
+                      />
+                      <span className="flex-1 capitalize">{col}</span>
+                    </div>
+                  </Dropdown.Item>
+                );
+              })}
+            </Dropdown.Content>
+          </Dropdown>
+        </div>
+
+        <div>
+          <Dropdown>
+            <Dropdown.Trigger className="border border-stone-300 min-w-50 capitalize">
+              {filterValue || "Select"}
+            </Dropdown.Trigger>
+            <Dropdown.Content>
+              <Dropdown.Item onClick={() => setFilterValue("active")}>
+                Active
+              </Dropdown.Item>
+              <Dropdown.Item onClick={() => setFilterValue("inactive")}>
+                InActive
+              </Dropdown.Item>
+              <Dropdown.Item onClick={() => setFilterValue("")}>
+                Reset
+              </Dropdown.Item>
+            </Dropdown.Content>
+          </Dropdown>
+        </div>
+      </Table.Toolbar>
 
       <Table>
         {/* //* header */}
