@@ -63,6 +63,7 @@ export const defaultDropdownItems = [
 ];
 
 export const tabData = [
+  { label: "Bar Chart" },
   { label: "Buttons" },
   { label: "Inputs" },
   { label: "Checkboxes" },
