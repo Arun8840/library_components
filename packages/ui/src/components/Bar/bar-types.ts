@@ -1,1 +1,3 @@
-export interface BarChartComponentProps {}
+export interface BarChartComponentProps {
+  data?: Record<string, string>[] | null;
+}

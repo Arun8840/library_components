@@ -9,25 +9,22 @@ const Plot = dynamic<PlotParams>(() => import("react-plotly.js") as any, {
   loading: () => <div>Loading...</div>,
 });
 
-export const Bar: React.FC<BarChartComponentProps> = () => {
+export const Bar: React.FC<BarChartComponentProps> = ({ data }) => {
   const config = { responsive: true };
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="size-full grid place-items-center text-gray-500">
+        No data found, please add the data.
+      </div>
+    );
+  }
   return (
-    <div className="w-1/2 grid place-items-center">
+    <div className="size-full grid place-items-center">
       <Plot
         className="size-full"
-        data={[
-          {
-            x: [1, 2, 3],
-            y: [2, 6, 3],
-            type: "scatter",
-            mode: "lines+markers",
-            marker: { color: "red" },
-          },
-          { type: "bar", x: [1, 2, 3], y: [2, 5, 3] },
-        ]}
+        data={data || []}
         layout={{
-          width: 600,
-          height: 400,
           title: { text: "A Fancy Plot" },
         }}
         config={config}
