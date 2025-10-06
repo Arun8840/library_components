@@ -5,7 +5,6 @@ import {
   defaultNavActions,
   defaultNavItems,
   tabData,
-  tableData,
   timelineData,
   treeData,
   usersData,
@@ -36,8 +35,8 @@ import {
   Tree,
   Divider,
   Dropdown,
-  Table,
   TableProvider,
+  Bar,
 } from "@zettastackpvt/ui/src/index";
 import RenderTable from "@zettastackpvt/ui/src/utility/render-table";
 import { Home } from "lucide-react";
@@ -459,6 +458,10 @@ export default function Page() {
             >
               <RenderTable />
             </TableProvider>
+          </Tab.Content>
+
+          <Tab.Content value="Bar Chart">
+            <Bar />
           </Tab.Content>
         </Tab>
       </div>
