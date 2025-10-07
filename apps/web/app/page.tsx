@@ -1,9 +1,12 @@
 "use client";
 
 import {
+  barchartData,
   defaultDropdownItems,
   defaultNavActions,
   defaultNavItems,
+  linechartData,
+  piechartData,
   tabData,
   timelineData,
   treeData,
@@ -37,6 +40,8 @@ import {
   Dropdown,
   TableProvider,
   Bar,
+  Line,
+  Pie,
 } from "@zettastackpvt/ui/src/index";
 import RenderTable from "@zettastackpvt/ui/src/utility/render-table";
 import { Home } from "lucide-react";
@@ -461,7 +466,53 @@ export default function Page() {
           </Tab.Content>
 
           <Tab.Content value="Bar Chart">
-            <Bar />
+            <Bar
+              data={barchartData as any}
+              layout={{
+                title: {
+                  text: "Bar chart",
+                },
+                barmode: "group",
+                showlegend: true,
+                bargap: 0.05,
+              }}
+            />
+          </Tab.Content>
+          <Tab.Content value="Line Chart">
+            <Line
+              data={linechartData as any}
+              layout={{
+                title: {
+                  text: "Line chart",
+                },
+                barmode: "group",
+                showlegend: true,
+                bargap: 0.05,
+              }}
+            />
+          </Tab.Content>
+
+          <Tab.Content value="Pie Chart">
+            <Pie
+              data={piechartData as any}
+              layout={{
+                title: {
+                  text: "Pie chart",
+                },
+                showlegend: true,
+                annotations: [
+                  {
+                    font: {
+                      size: 20,
+                      color: "#FFFFFF",
+                    },
+                    showarrow: false,
+                    text: "Title",
+                    bgcolor: "#000000",
+                  },
+                ],
+              }}
+            />
           </Tab.Content>
         </Tab>
       </div>
