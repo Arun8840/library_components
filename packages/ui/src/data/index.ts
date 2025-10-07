@@ -64,6 +64,8 @@ export const defaultDropdownItems = [
 
 export const tabData = [
   { label: "Bar Chart" },
+  { label: "Line Chart" },
+  { label: "Pie Chart" },
   { label: "Buttons" },
   { label: "Inputs" },
   { label: "Checkboxes" },
@@ -160,4 +162,56 @@ export const usersData = [
   { id: "12", name: "Liam", email: "liam@email.com", status: "inactive" },
   { id: "13", name: "Ava", email: "ava@email.com", status: "active" },
   { id: "14", name: "Noah", email: "noah@email.com", status: "inactive" },
+];
+
+export const barchartData = [
+  {
+    x: ["apples", "bananas", "oranges"],
+    y: [12, 18, 29],
+    name: "Fruits",
+    type: "bar",
+    marker: { color: "#FF731D" },
+  },
+  {
+    x: ["apples", "bananas", "oranges"],
+    y: [20, 14, 23],
+    name: "Nuts",
+    type: "bar",
+    marker: { color: "#C2A68C" },
+  },
+];
+
+export const linechartData = [
+  {
+    x: ["apples", "bananas", "oranges"],
+    y: [12, 18, 29],
+    name: "Fruits",
+    type: "scatter",
+    marker: { color: "#FF731D" },
+  },
+  {
+    x: ["apples", "bananas", "oranges"],
+    y: [20, 14, 23],
+    name: "Nuts",
+    type: "scatter",
+    marker: { color: "#C2A68C" },
+  },
+];
+
+export const piechartData = [
+  {
+    type: "pie",
+    values: [12, 18, 29, 20, 14, 23],
+    labels: [
+      "Apples (Fruits)",
+      "Bananas (Fruits)",
+      "Oranges (Fruits)",
+      "Apples (Nuts)",
+      "Bananas (Nuts)",
+      "Oranges (Nuts)",
+    ],
+    textinfo: "label+percent",
+    textposition: "outside",
+    automargin: true,
+  },
 ];

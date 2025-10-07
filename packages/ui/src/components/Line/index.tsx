@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { BarChartComponentProps } from "./bar-types";
+import { LineChartComponentProps } from "./line-types";
 import { cn } from "../../lib/utils";
 import { Plotly } from "../../utility/Suspensed-plotly";
 
 const baseClass = "size-full grid place-items-center";
 
-export const Bar: React.FC<BarChartComponentProps> = ({
+export const Line: React.FC<LineChartComponentProps> = ({
   data,
   layout,
   className,
