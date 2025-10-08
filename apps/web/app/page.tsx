@@ -2,15 +2,18 @@
 
 import {
   barchartData,
+  bubbleChartData,
   defaultDropdownItems,
   defaultNavActions,
   defaultNavItems,
+  indicatorChartData,
   linechartData,
   piechartData,
   tabData,
   timelineData,
   treeData,
   usersData,
+  waterfallChartData,
 } from "@zettastackpvt/ui/src/data/index";
 import {
   Accordion,
@@ -42,6 +45,9 @@ import {
   Bar,
   Line,
   Pie,
+  Bubble,
+  Waterfall,
+  Indicator,
 } from "@zettastackpvt/ui/src/index";
 import RenderTable from "@zettastackpvt/ui/src/utility/render-table";
 import { Home } from "lucide-react";
@@ -511,6 +517,48 @@ export default function Page() {
                     bgcolor: "#000000",
                   },
                 ],
+              }}
+            />
+          </Tab.Content>
+
+          <Tab.Content value="Bubble Chart">
+            <Bubble
+              data={bubbleChartData as any}
+              layout={{
+                title: {
+                  text: "Pie chart",
+                },
+                showlegend: true,
+              }}
+            />
+          </Tab.Content>
+
+          <Tab.Content value="Waterfall Chart">
+            <Waterfall
+              data={waterfallChartData as any}
+              layout={{
+                title: {
+                  text: "Waterfall chart",
+                },
+                xaxis: {
+                  type: "category",
+                },
+                yaxis: {
+                  type: "linear",
+                },
+                autosize: true,
+                showlegend: true,
+              }}
+            />
+          </Tab.Content>
+          <Tab.Content value="Indicator Chart">
+            <Indicator
+              className="w-1/2"
+              data={indicatorChartData as any}
+              layout={{
+                title: {
+                  text: "Indicator chart",
+                },
               }}
             />
           </Tab.Content>
