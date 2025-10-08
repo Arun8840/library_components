@@ -32,3 +32,6 @@ export { Table, TableProvider, useTable } from "./components/Table";
 export { Bar } from "./components/Bar";
 export { Line } from "./components/Line";
 export { Pie } from "./components/Pie";
+export { Bubble } from "./components/Bubble";
+export { Waterfall } from "./components/Waterfall";
+export { Indicator } from "./components/Indicator";

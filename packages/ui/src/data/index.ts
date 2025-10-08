@@ -66,6 +66,9 @@ export const tabData = [
   { label: "Bar Chart" },
   { label: "Line Chart" },
   { label: "Pie Chart" },
+  { label: "Bubble Chart" },
+  { label: "Waterfall Chart" },
+  { label: "Indicator Chart" },
   { label: "Buttons" },
   { label: "Inputs" },
   { label: "Checkboxes" },
@@ -170,14 +173,14 @@ export const barchartData = [
     y: [12, 18, 29],
     name: "Fruits",
     type: "bar",
-    marker: { color: "#FF731D" },
+    marker: { color: "orangered" },
   },
   {
     x: ["apples", "bananas", "oranges"],
     y: [20, 14, 23],
     name: "Nuts",
-    type: "bar",
-    marker: { color: "#C2A68C" },
+    type: "scatter",
+    marker: { color: "black" },
   },
 ];
 
@@ -195,6 +198,12 @@ export const linechartData = [
     name: "Nuts",
     type: "scatter",
     marker: { color: "#C2A68C" },
+    error_y: {
+      type: "data",
+      symmetric: false,
+      array: [0.1, 0.2, 0.1, 0.1],
+      arrayminus: [0.2, 0.4, 1, 0.2],
+    },
   },
 ];
 
@@ -213,5 +222,53 @@ export const piechartData = [
     textinfo: "label+percent",
     textposition: "outside",
     automargin: true,
+  },
+];
+
+export const bubbleChartData = [
+  {
+    x: [1, 2, 3, 4],
+    y: [10, 11, 12, 13],
+    mode: "markers",
+    marker: {
+      size: [40, 60, 80, 100],
+    },
+  },
+];
+
+export const waterfallChartData = [
+  {
+    name: "2018",
+    type: "waterfall",
+    orientation: "v",
+    measure: ["relative", "relative", "total", "relative", "relative", "total"],
+    x: [
+      "Sales",
+      "Consulting",
+      "Net revenue",
+      "Purchases",
+      "Other expenses",
+      "Profit before tax",
+    ],
+    textposition: "outside",
+    text: ["+60", "+80", "", "-40", "-20", "Total"],
+    y: [60, 80, 0, -40, -20, 0],
+    connector: {
+      line: {
+        color: "rgb(63, 63, 63)",
+      },
+    },
+  },
+];
+
+export const indicatorChartData = [
+  {
+    type: "indicator",
+    mode: "number+gauge+delta",
+    gauge: { axis: { range: [null, 500] } },
+    delta: { reference: 300 },
+    value: 220,
+    domain: { x: [0, 1], y: [0, 1] },
+    title: { text: "Profit" },
   },
 ];
