@@ -35,3 +35,5 @@ export { Pie } from "./components/Pie";
 export { Bubble } from "./components/Bubble";
 export { Waterfall } from "./components/Waterfall";
 export { Indicator } from "./components/Indicator";
+export { HeatMap } from "./components/HeatMap";
+export { CandleStick } from "./components/CandleStick";
