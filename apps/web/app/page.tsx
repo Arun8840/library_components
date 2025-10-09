@@ -3,9 +3,11 @@
 import {
   barchartData,
   bubbleChartData,
+  candleStickData,
   defaultDropdownItems,
   defaultNavActions,
   defaultNavItems,
+  heatMapData,
   indicatorChartData,
   linechartData,
   piechartData,
@@ -48,6 +50,8 @@ import {
   Bubble,
   Waterfall,
   Indicator,
+  HeatMap,
+  CandleStick,
 } from "@zettastackpvt/ui/src/index";
 import RenderTable from "@zettastackpvt/ui/src/utility/render-table";
 import { Home } from "lucide-react";
@@ -553,11 +557,34 @@ export default function Page() {
           </Tab.Content>
           <Tab.Content value="Indicator Chart">
             <Indicator
-              className="w-1/2"
+              className="w-1/2 mx-auto"
               data={indicatorChartData as any}
               layout={{
                 title: {
                   text: "Indicator chart",
+                },
+              }}
+            />
+          </Tab.Content>
+
+          <Tab.Content value="HeatMap Chart">
+            <HeatMap
+              className="w-1/2 mx-auto"
+              data={heatMapData as any}
+              layout={{
+                title: {
+                  text: "HeatMap chart",
+                },
+              }}
+            />
+          </Tab.Content>
+
+          <Tab.Content value="Candle-Stick Chart">
+            <CandleStick
+              data={candleStickData as any}
+              layout={{
+                title: {
+                  text: "HeatMap chart",
                 },
               }}
             />
